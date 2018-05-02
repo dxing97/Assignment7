@@ -7,6 +7,7 @@
 
 int *lookup(int next, int current, int carry, int lookup_result[]) {
         int compound = next * 4 + current * 2 + carry;
+        printf("compound: %d\n", compound); 
         lookup_result[0] = 0;
         lookup_result[1] = 0;
         switch(compound) {
