@@ -28,7 +28,7 @@ void convert(int input, int output[]) {
         int lookup_results[2];
       
         int currentdigit = 0;
-        while (input != 0) {
+        do {
                 current = input & 1;
                 next = (input & 2) >> 1;
                 lookup(next, current, carry, lookup_results);
@@ -36,7 +36,7 @@ void convert(int input, int output[]) {
                 output[currentdigit] = lookup_results[1];
                 currentdigit++;
                 input = input >> 1;
-        }
+        } while (input != 0 || carry != 0);
 }
 
 int main() {
@@ -57,7 +57,7 @@ int main() {
         printf("\n");
         
         memset(output, 0, 32*sizeof(int));
-        convert(0x7BAF, output);
+        convert(INPUT2, output);
         for(i = 31; i >= 0; i--) {
                 printf("%d, ", output[i]);
         }
