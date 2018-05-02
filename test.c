@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #define INPUT 0x2BEF
 #define INPUT2 0xBDAB
 
