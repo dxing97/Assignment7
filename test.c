@@ -5,7 +5,7 @@
 int lookup_result[2]; //0 - carry, 1 - recoded
 
 int *lookup(int next, int current, int carry) {
-        int compund = next * 4 + current * 2 + carry;
+        int compound = next * 4 + current * 2 + carry;
         lookup_result[0] = 0;
         lookup_result[1] = 0;
         switch(compound) {
@@ -33,7 +33,7 @@ int main() {
         match current bit and carry in with table
         output recided bit and carryout
         */
-        int input = INPUT, output = 0;
+        int input = INPUT;
         int carry = 0, current= input & 1, next = input & 2;
         int *lookup_results;
         int output[32];
