@@ -3,9 +3,9 @@
 #define INPUT 0x2BEF
 #define INPUT2 0xBDAB
 
-int lookup_result[2]; //0 - carry, 1 - recoded
+//int lookup_result[2]; //0 - carry, 1 - recoded
 
-int *lookup(int next, int current, int carry) {
+int *lookup(int next, int current, int carry, int lookup_result[]) {
         int compound = next * 4 + current * 2 + carry;
         lookup_result[0] = 0;
         lookup_result[1] = 0;
@@ -26,6 +26,22 @@ int *lookup(int next, int current, int carry) {
         return lookup_result;
 }
 
+void convert(int input, int output[]) 
+        int carry = 0, current = input & 1, next = input & 2;
+        int lookup_results[2];
+      
+        int currentdigit = 0;
+        while (input != 0) {
+                current = input & 1;
+                next = input & 2;
+                lookup_results = lookup(next, current, carry, lookup_results);
+                carry = lookup_results[0];
+                output[currentdigit] = lookup_results[1];
+                currentdigit++;
+                input = input >> 1;
+        }
+}
+
 int main() {
         /*
         read in the input char by char
@@ -33,21 +49,16 @@ int main() {
         match current bit and carry in with table
         output recided bit and carryout
         */
-        int input = INPUT;
-        int carry = 0, current= input & 1, next = input & 2;
-        int *lookup_results;
         int output[32];
         memset(output, 0, 32*sizeof(int));
-        int currentdigit = 0;
-        while (input != 0) {
-                current = input & 1;
-                next = input & 2;
-                lookup_results = lookup(next, current, carry);
-                carry = lookup_results[0];
-                output[currentdigit] = lookup_results[1];
-                currentdigit++;
-                input = input >> 1;
+        
+        convert(INPUT, output);
+        int i;
+        for(i = 31; i >= 0; i--) {
+                printf("%d, ", output[i]);
         }
+        printf("\n");
+        convert(INPUT2, output);
         int i;
         for(i = 31; i >= 0; i--) {
                 printf("%d, ", output[i]);
