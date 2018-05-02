@@ -11,12 +11,12 @@ int *lookup(int next, int current, int carry, int lookup_result[]) {
         lookup_result[0] = 0;
         lookup_result[1] = 0;
         if(compound == 3 || compound == 7) 
-                lookup_result[0];
+                lookup_result[0] = 1;
         else if(compound == 5 || compound == 6) {
                 lookup_result[1] = -1;
                 lookup_result[0] = 1;
         } else if(compound == 1 || compound == 2) {
-                        lookup_result[1] = 1;
+                lookup_result[1] = 1;
         }
         return lookup_result;
 }
