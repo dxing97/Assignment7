@@ -36,6 +36,7 @@ int main() {
         int carry = 0, current= input & 1, next = input & 2;
         int *lookup_results;
         int output[32];
+        memset(output, 0, 32*sizeof(int));
         int currentdigit = 0;
         while (input != 0) {
                 current = input & 1;
