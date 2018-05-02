@@ -62,6 +62,8 @@ int main() {
                 printf("%d, ", output[i]);
         }
         printf("\n");
+        
+        memset(output, 0, 32*sizeof(int));
         convert(INPUT2, output);
         for(i = 31; i >= 0; i--) {
                 printf("%d, ", output[i]);
