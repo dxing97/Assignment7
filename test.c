@@ -26,8 +26,10 @@ int *lookup(int next, int current, int carry, int lookup_result[]) {
         return lookup_result;
 }
 
-void convert(int input, int output[]) 
-        int carry = 0, current = input & 1, next = input & 2;
+void convert(int input, int output[]) {
+        int carry = 0;
+        int current = input & 1;
+        int next = input & 2;
         int lookup_results[2];
       
         int currentdigit = 0;
