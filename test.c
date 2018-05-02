@@ -10,21 +10,13 @@ int *lookup(int next, int current, int carry, int lookup_result[]) {
         printf("compound: %d\n", compound); 
         lookup_result[0] = 0;
         lookup_result[1] = 0;
-        switch(compound) {
-                case 3:
-                case 7:
-                        lookup_result[0] = 1;
-                        break;
-
-                case 5:
-                case 6:
-                        lookup_result[1] = -1;
-                        lookup_result[0] = 1;
-                        break;
-                case 1:
-                case 2:
+        if(compound == 3 || compound == 7) 
+                lookup_result[0];
+        else if(compound == 5 || compound == 6) {
+                lookup_result[1] = -1;
+                lookup_result[0] = 1;
+        } else if(compound == 1 || compound == 2) {
                         lookup_result[1] = 1;
-                        break;
         }
         return lookup_result;
 }
