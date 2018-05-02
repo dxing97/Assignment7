@@ -30,7 +30,7 @@ void convert(int input, int output[]) {
         int carry = 0;
         int current = input & 1;
         int next = input & 2;
-        int lookup_results[2]
+        int lookup_results[2];
       
         int currentdigit = 0;
         while (input != 0) {
@@ -61,7 +61,6 @@ int main() {
         }
         printf("\n");
         convert(INPUT2, output);
-        int i;
         for(i = 31; i >= 0; i--) {
                 printf("%d, ", output[i]);
         }
