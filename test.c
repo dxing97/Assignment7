@@ -49,7 +49,7 @@ int main() {
                 input = input >> 1;
         }
         int i;
-        for(i = 0; i < 32; i++) {
+        for(i = 31; i >= 0; i--) {
                 printf("%d, ", output[i]);
         }
         return 0;
