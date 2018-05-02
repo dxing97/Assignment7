@@ -57,7 +57,7 @@ int main() {
         printf("\n");
         
         memset(output, 0, 32*sizeof(int));
-        convert(INPUT2, output);
+        convert(0x7BAF, output);
         for(i = 31; i >= 0; i--) {
                 printf("%d, ", output[i]);
         }
