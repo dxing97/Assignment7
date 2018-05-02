@@ -30,13 +30,13 @@ int *lookup(int next, int current, int carry, int lookup_result[]) {
 void convert(int input, int output[]) {
         int carry = 0;
         int current = input & 1;
-        int next = input & 2;
+        int next = (input & 2) >> 1;
         int lookup_results[2];
       
         int currentdigit = 0;
         while (input != 0) {
                 current = input & 1;
-                next = input & 2;
+                next = (input & 2) >> 1;
                 lookup(next, current, carry, lookup_results);
                 carry = lookup_results[0];
                 output[currentdigit] = lookup_results[1];
